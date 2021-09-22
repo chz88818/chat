@@ -9,3 +9,7 @@ spring:
     virtual-host: /
     host: 121.43.151.199
     port: 5672
+
+  elasticsearch:
+    rest:
+      uris: http://127.0.0.1:9200
