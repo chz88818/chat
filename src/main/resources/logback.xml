@@ -28,6 +28,5 @@
     <root level="DEBUG">
         <appender-ref ref="console"/>
         <appender-ref ref="logstash"/>
-
     </root>
 </configuration>
