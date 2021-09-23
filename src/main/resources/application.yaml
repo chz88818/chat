@@ -13,3 +13,11 @@ spring:
   elasticsearch:
     rest:
       uris: http://127.0.0.1:9200
+
+  kafka:
+    producer:
+      bootstrap-servers: 121.43.151.199:9092
+      #指定存入kafka中的日志的key的序列化器：String
+      key-serializer: org.apache.kafka.common.serialization.StringSerializer
+      #指定存入kafka中的日志的value的序列化器：String
+      value-serializer: org.apache.kafka.common.serialization.StringSerializer
