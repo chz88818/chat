@@ -32,6 +32,9 @@
     <root level="DEBUG">
         <appender-ref ref="console"/>
         <!--<appender-ref ref="logstash"/>-->
+<!--        <appender-ref ref="KAFKA"/>-->
+    </root>
+    <root level="INFO">
         <appender-ref ref="KAFKA"/>
     </root>
 </configuration>
