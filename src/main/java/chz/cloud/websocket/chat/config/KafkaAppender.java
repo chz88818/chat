@@ -8,6 +8,7 @@ import ch.qos.logback.core.ConsoleAppender;
 import chz.cloud.websocket.chat.entities.SimpleLog;
 import chz.cloud.websocket.chat.formatter.Formatter;
 import com.alibaba.fastjson.JSON;
+import org.apache.commons.lang3.ObjectUtils;
 import org.apache.kafka.clients.producer.Producer;
 import org.apache.kafka.common.serialization.StringSerializer;
 import org.slf4j.Logger;
@@ -61,7 +62,7 @@ public class KafkaAppender extends ConsoleAppender<ILoggingEvent> {
         String dateStr = sdf.format(date);
         String levStr = eventObject.getLevel().toString();
         String formattedMessage = eventObject.getFormattedMessage();
-        if (eventObject.getThrowableProxy() != null) {
+        if (ObjectUtils.isNotEmpty(eventObject.getThrowableProxy()) ) {
             StackTraceElementProxy[] stackTraceElementProxyArray = eventObject.getThrowableProxy().getStackTraceElementProxyArray();
             simpleLog.setStackTraceElementProxyArray(stackTraceElementProxyArray);
         }
@@ -70,7 +71,7 @@ public class KafkaAppender extends ConsoleAppender<ILoggingEvent> {
         simpleLog.setDate(dateStr);
         simpleLog.setLevel(levStr);
         simpleLog.setMessage(formattedMessage);
-        kafkaTemplate.send("test_log2", "user", JSON.toJSONString(simpleLog));//eventObject.getFormattedMessage()
+        kafkaTemplate.send("test_log3", "user", JSON.toJSONString(simpleLog));//eventObject.getFormattedMessage()
         //kafkaTemplate.send("test_log1","user", "连接到Kafka。。。。。。。");// 先连接一遍，如果去掉可能报   Failed to update metadata after 60000 ms
     }
 }

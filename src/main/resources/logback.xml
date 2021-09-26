@@ -28,6 +28,7 @@
     <appender name="KAFKA" class="chz.cloud.websocket.chat.config.KafkaAppender">
         <encoder>
             <pattern>${CONSOLE_LOG_PATTERN}</pattern>
+            <charset>utf8</charset>
         </encoder>
     </appender>
     <!--日志输出级别-->
