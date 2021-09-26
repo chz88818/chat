@@ -25,12 +25,12 @@ public class KafkaTestController {
     @GetMapping("/kafka")
     public String sendMessageToKafka() {
         String s="无";
-        try{
+  //      try{
             int a=1/0;
-        }catch (Exception e) {
-            // String s = kafkaUtils.sendMessage();//("test_log", "user", "卯升超");
-             s = kafkaUtils.sendMessage(e);
-        }
+//        }catch (Exception e) {
+//            // String s = kafkaUtils.sendMessage();//("test_log", "user", "卯升超");
+//             s = kafkaUtils.sendMessage(e);
+//        }
         return s;
     }
 }

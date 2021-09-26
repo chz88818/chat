@@ -18,7 +18,7 @@
             <charset>utf8</charset>
         </encoder>
     </appender>
-    <!--logstash远程日志配置-->
+<!--    logstash远程日志配置-->
 <!--    <appender name="logstash" class="net.logstash.logback.appender.LogstashTcpSocketAppender">-->
 <!--        <destination>localhost:4560</destination>-->
 <!--        <encoder charset="UTF-8" class="net.logstash.logback.encoder.LogstashEncoder"/>-->
@@ -26,7 +26,9 @@
 <!--    </appender>-->
 
     <appender name="KAFKA" class="chz.cloud.websocket.chat.config.KafkaAppender">
-
+        <encoder>
+            <pattern>${CONSOLE_LOG_PATTERN}</pattern>
+        </encoder>
     </appender>
     <!--日志输出级别-->
     <root level="DEBUG">
