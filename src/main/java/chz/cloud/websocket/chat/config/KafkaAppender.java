@@ -35,8 +35,8 @@ public class KafkaAppender extends AppenderBase<ILoggingEvent> {
         Map<String, Object> props = new HashMap();
         props.put("bootstrap.servers", bootstrapServers);
         props.put("retries", 0);
-        props.put("key.serializer", StringSerializer.class);
-        props.put("value.serializer", StringSerializer.class);
+        props.put("key.serializer", "org.apache.kafka.common.serialization.StringSerializer");
+        props.put("value.serializer", "org.apache.kafka.common.serialization.StringSerializer");
         kafkaTemplate = new KafkaTemplate(new DefaultKafkaProducerFactory(props));
         kafkaTemplate.send("testConnection","testConnection", "连接到Kafka。。。。。。。");// 先连接一遍，如果去掉可能报   Failed to update metadata after 60000 ms
     }
