@@ -23,7 +23,7 @@ import java.util.Properties;
  * @Description:
  */
 public class KafkaAppender extends AppenderBase<ILoggingEvent> {
-    private static Logger logger = LoggerFactory.getLogger(KafkaAppender.class);
+
 
 
     private static final String bootstrapServers="121.43.151.199:9092";
