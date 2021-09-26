@@ -3,6 +3,7 @@ package chz.cloud.websocket.chat.controller;
 import chz.cloud.websocket.chat.tools.KafkaUtils;
 import lombok.val;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.kafka.core.KafkaTemplate;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -17,6 +18,9 @@ import org.springframework.web.bind.annotation.RestController;
 public class KafkaTestController {
     @Autowired
     private KafkaUtils kafkaUtils;
+
+    @Autowired
+    private KafkaTemplate kafkaTemplate;
 
     @GetMapping("/kafka")
     public String sendMessageToKafka() {
